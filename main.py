@@ -22,7 +22,6 @@ Todo lo que se genera queda en la carpeta ``resultados/``.
 from __future__ import annotations
 
 import argparse
-import shutil
 import sys
 import time
 from pathlib import Path
@@ -39,7 +38,6 @@ RESULTADOS = RAIZ / "resultados"
 CARPETA_GRAFICAS = RESULTADOS / "graficas"
 CARPETA_DATOS = RESULTADOS / "datos"
 CARPETA_CALIDAD = RESULTADOS / "calidad"
-CARPETA_PRESENTACION = RAIZ / "presentacion" / "assets"
 
 if hasattr(sys.stdout, "reconfigure"):          # tildes y símbolos en Windows
     sys.stdout.reconfigure(encoding="utf-8")
@@ -192,11 +190,6 @@ def graficas_y_mediciones(n_max: int = 5000, puntos: int = 10,
     gaps = benchmark.comparar_secuencias_gaps(ns)
     benchmark.guardar_csv(CARPETA_DATOS / "shell_secuencias_gaps.csv", ns, gaps)
     graficas.grafica_secuencias_gaps(ns, gaps, CARPETA_GRAFICAS)
-
-    # Copia de las gráficas para la presentación.
-    CARPETA_PRESENTACION.mkdir(parents=True, exist_ok=True)
-    for png in CARPETA_GRAFICAS.glob("*.png"):
-        shutil.copy2(png, CARPETA_PRESENTACION / png.name)
 
     print(f"\n  ✔ Listo en {time.perf_counter() - inicio:.1f} s → "
           f"{CARPETA_GRAFICAS.relative_to(RAIZ)}")

@@ -20,7 +20,6 @@ Algoritmo propio: **Shell Sort**. Se compara con dos métodos de la lista del cu
 | 3. Calidad de software de cada algoritmo por separado | `calidad/verificador.py` (16 verificaciones por algoritmo) y `tests/test_<algoritmo>.py` (pytest) |
 | 3.1 Gráficas generadas por el programa, rango de arreglos aumentado | `analisis/graficas.py` → `resultados/graficas/` (n de 500 a 5.000 y rango ampliado hasta 50.000) |
 | 4. Pseudocódigo | `docs/pseudocodigo.md` y el docstring de cada algoritmo |
-| Presentación | `presentacion/index.html` (animada, se abre en el navegador) |
 
 ---
 
@@ -28,7 +27,7 @@ Algoritmo propio: **Shell Sort**. Se compara con dos métodos de la lista del cu
 
 ```bash
 # 1. Instalar dependencias (una sola vez)
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 # 2. Menú interactivo
 python main.py
@@ -70,11 +69,10 @@ analisis-shell-sort/
 │   └── verificador.py         # 16 verificaciones de calidad por algoritmo
 ├── tests/                     # pytest: un archivo por algoritmo
 ├── docs/pseudocodigo.md
-├── resultados/
-│   ├── graficas/              # PNG generados por el programa
-│   ├── datos/                 # CSV con las mediciones (abren en Excel)
-│   └── calidad/               # informe de calidad de cada algoritmo
-└── presentacion/index.html    # presentación animada
+└── resultados/
+    ├── graficas/              # PNG generados por el programa
+    ├── datos/                 # CSV con las mediciones (abren en Excel)
+    └── calidad/               # informe de calidad de cada algoritmo
 ```
 
 ---
