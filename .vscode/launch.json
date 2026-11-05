@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Menú principal",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Demo Shell Sort paso a paso",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "args": ["demo"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Verificar calidad",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "args": ["calidad"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Generar gráficas",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "args": ["graficas"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
