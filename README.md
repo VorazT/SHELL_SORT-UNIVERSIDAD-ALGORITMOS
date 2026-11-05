@@ -26,22 +26,30 @@ Algoritmo propio: **Shell Sort**. Se compara con dos métodos de la lista del cu
 ## 🚀 Cómo ejecutarlo (VS Code)
 
 ```bash
-# 1. Instalar dependencias (una sola vez)
+# 1. Instalar las librerías (solo la primera vez)
 python -m pip install -r requirements.txt
 
-# 2. Menú interactivo
+# 2. Abrir el menú
 python main.py
+```
 
-# o directamente:
-python main.py demo                  # Shell Sort paso a paso con tus números
-python main.py demo --valores "35 33 42 10 14 19 27 44"
-python main.py calidad               # verificación de calidad de los 3
-python main.py graficas              # mediciones + gráficas (≈ 30 s)
-python main.py graficas --rapido     # versión corta para probar
-python main.py graficas --n-max 10000 --n-ampliado 100000   # rango más grande
-python main.py todo                  # calidad + gráficas
+> En Windows, si `python` no se reconoce, usa `py` (por ejemplo `py main.py`).
 
-# 3. Pruebas unitarias
+El menú limpia la pantalla en cada paso y explica qué escribir:
+
+| Opción | Qué hace | Qué te pide |
+|---|---|---|
+| **1. Ver Shell Sort paso a paso** | Ordena unos pocos números mostrando cada gap como barras | Números aleatorios o escritos por ti: **entre 5 y 20** |
+| **2. Verificar la calidad** | 16 verificaciones a cada algoritmo por separado | Nada |
+| **3. Medir y ver las gráficas** | Mide los 3 algoritmos con arreglos cada vez más grandes y abre una ventana con las 8 gráficas | Datos aleatorios o **entre 10 y 100** números tuyos (se repiten como patrón) y el tamaño máximo: **entre 500 y 8.000** (Enter = 5.000) |
+| **4. Volver a abrir las gráficas** | Abre otra vez la ventana sin recalcular | Nada |
+
+En la ventana de gráficas se pasa de una a otra con **◀ Anterior / Siguiente ▶**
+(o las flechas del teclado); al cerrarla se vuelve al menú.
+
+Pruebas unitarias (pytest):
+
+```bash
 python -m pytest -v
 ```
 
@@ -64,7 +72,8 @@ analisis-shell-sort/
 │   ├── generadores.py         # arreglos aleatorio / ordenado / inverso
 │   ├── benchmark.py           # cuenta operaciones y mide tiempo
 │   ├── complejidad.py         # funciones f(n) y ajuste c·f(n) con R²
-│   └── graficas.py            # todas las gráficas (matplotlib)
+│   ├── graficas.py            # todas las gráficas (matplotlib)
+│   └── visor.py               # ventana para ver las gráficas
 ├── calidad/
 │   └── verificador.py         # 16 verificaciones de calidad por algoritmo
 ├── tests/                     # pytest: un archivo por algoritmo

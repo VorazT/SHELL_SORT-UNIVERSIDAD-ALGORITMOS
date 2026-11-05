@@ -1,6 +1,6 @@
 # Calidad de software — Insertion Sort
 
-**Resultado:** 16/16 verificaciones aprobadas en 0.33 s
+**Resultado:** 16/16 verificaciones aprobadas en 0.30 s
 
 Complejidad documentada: mejor Θ(n) · promedio Θ(n²) · peor Θ(n²) · estable · in-place O(1)
 

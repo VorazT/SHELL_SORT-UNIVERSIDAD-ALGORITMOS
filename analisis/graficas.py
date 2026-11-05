@@ -163,7 +163,8 @@ def grafica_funciones_teoricas(carpeta: Path, n_max: int = 60) -> Path:
 
 def grafica_algoritmo(ficha: FichaAlgoritmo, ns: Sequence[int],
                       operaciones: Dict[str, List[float]],
-                      tiempos: List[float], carpeta: Path) -> Dict[str, dict]:
+                      tiempos: List[float], carpeta: Path,
+                      entrada: str = "aleatoria") -> Dict[str, dict]:
     """Gráfica de dos paneles de un algoritmo y su ajuste a f(n).
 
     Panel izquierdo: comparaciones contadas en cada caso (puntos) frente a
@@ -205,14 +206,15 @@ def grafica_algoritmo(ficha: FichaAlgoritmo, ns: Sequence[int],
     ax1.legend(manijas, textos, loc="upper left", fontsize=8.5)
 
     # --- Panel 2: tiempo ----------------------------------------------------
-    modelo_t = modelos["aleatorio"]
+    principal = next(iter(operaciones))          # "aleatorio" o "tus datos"
+    modelo_t = modelos[principal]
     c_t, r2_t = ajustar(ns, tiempos, modelo_t)
     resumen["tiempo"] = {"modelo": modelo_t.etiqueta, "c": c_t, "r2": r2_t}
     ax2.plot(x_fino, [c_t * modelo_t.f(n) for n in x_fino], color=TEORICA,
              lw=1.8, ls="--", label=f"teórico: c·{modelo_t.etiqueta}")
     ax2.plot(ns, tiempos, color=ficha.color, lw=2, marker="o", ms=6,
-             markeredgecolor=SUPERFICIE, label="tiempo medido (aleatorio)")
-    ax2.set_title("Tiempo real (entrada aleatoria) vs. c·f(n)")
+             markeredgecolor=SUPERFICIE, label=f"tiempo medido ({entrada})")
+    ax2.set_title(f"Tiempo real (entrada {entrada}) vs. c·f(n)")
     ax2.set_xlabel("n (tamaño del arreglo)")
     ax2.set_ylabel("tiempo (ms)")
     ax2.xaxis.set_major_formatter(_MILES)
@@ -291,8 +293,8 @@ def grafica_comparacion(fichas: Sequence[FichaAlgoritmo], ns: Sequence[int],
 
 
 def grafica_secuencias_gaps(ns: Sequence[int], series: Dict[str, List[float]],
-                            carpeta: Path) -> Path:
-    """Shell Sort con las tres secuencias de gaps (entrada aleatoria)."""
+                            carpeta: Path, entrada: str = "aleatoria") -> Path:
+    """Shell Sort con las tres secuencias de gaps."""
     colores = ["#6250d6", "#2a78d6", "#e87ba4"]
     fig, ax = plt.subplots(figsize=(10, 5.2))
     finales = []
@@ -305,7 +307,7 @@ def grafica_secuencias_gaps(ns: Sequence[int], series: Dict[str, List[float]],
     ax.set_xlim(0, ns[-1] * 1.22)
     ax.set_title("Shell Sort: la secuencia de gaps cambia el rendimiento")
     ax.set_xlabel("n (tamaño del arreglo)")
-    ax.set_ylabel("comparaciones (entrada aleatoria)")
+    ax.set_ylabel(f"comparaciones (entrada {entrada})")
     ax.legend(loc="upper left")
     _etiquetas_directas(ax, finales)
     return _guardar(fig, carpeta, "shell_secuencias_gaps.png")

@@ -45,6 +45,10 @@ MODELOS: Dict[str, Dict[str, Modelo]] = {
     "heap": {"ordenado": N_LOG_N, "aleatorio": N_LOG_N, "inverso": N_LOG_N},
 }
 
+# Los datos del usuario se comparan con el mismo modelo del caso aleatorio.
+for _modelos in MODELOS.values():
+    _modelos["tus datos"] = _modelos["aleatorio"]
+
 #: Curvas que se dibujan juntas en la gráfica de "funciones teóricas".
 REFERENCIA = [N, N_LOG_N, N_1_25, N_1_5, N_2]
 

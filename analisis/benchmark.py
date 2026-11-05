@@ -33,19 +33,22 @@ from .generadores import TIPOS, aleatorio
 Serie = Dict[str, List[float]]   # nombre de la serie → valores por tamaño
 
 
-def contar_operaciones(ficha: FichaAlgoritmo, ns: Sequence[int]) -> Serie:
+def contar_operaciones(ficha: FichaAlgoritmo, ns: Sequence[int],
+                       tipos: Dict[str, Callable] = TIPOS) -> Serie:
     """Cuenta las comparaciones de un algoritmo en los tres tipos de entrada.
 
     Args:
         ficha: algoritmo a medir.
         ns:    tamaños de arreglo.
+        tipos: generadores de cada tipo de entrada (por defecto los tres de
+               ``generadores.TIPOS``).
 
     Returns:
         ``{"aleatorio": [...], "ordenado": [...], "inverso": [...]}`` con el
         número de comparaciones para cada tamaño.
     """
     resultado: Serie = {}
-    for tipo, generar in TIPOS.items():
+    for tipo, generar in tipos.items():
         valores = []
         for n in ns:
             metricas = Metricas()
@@ -89,14 +92,15 @@ def medir_tiempo(funcion: Callable[[List[int]], List[int]],
     return tiempos
 
 
-def comparar_secuencias_gaps(ns: Sequence[int]) -> Serie:
-    """Comparaciones de Shell Sort (entrada aleatoria) con cada secuencia de gaps."""
+def comparar_secuencias_gaps(ns: Sequence[int],
+                             generar: Callable[[int], List] = aleatorio) -> Serie:
+    """Comparaciones de Shell Sort con cada secuencia de gaps."""
     resultado: Serie = {}
     for nombre, secuencia in SECUENCIAS.items():
         valores = []
         for n in ns:
             metricas = Metricas()
-            shell_sort(aleatorio(n), secuencia=secuencia, metricas=metricas)
+            shell_sort(generar(n), secuencia=secuencia, metricas=metricas)
             valores.append(metricas.comparaciones)
         resultado[nombre] = valores
     return resultado
