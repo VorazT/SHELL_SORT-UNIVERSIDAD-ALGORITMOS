@@ -1,6 +1,6 @@
 # Calidad de software — Shell Sort
 
-**Resultado:** 16/16 verificaciones aprobadas en 0.13 s
+**Resultado:** 16/16 verificaciones aprobadas en 0.11 s
 
 Complejidad documentada: mejor Θ(n log n) · promedio ≈ O(n^1.25) · peor O(n^1.5) · no estable · in-place O(1)
 

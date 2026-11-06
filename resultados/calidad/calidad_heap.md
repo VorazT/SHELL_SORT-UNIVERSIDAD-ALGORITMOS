@@ -1,6 +1,6 @@
 # Calidad de software — Heap Sort
 
-**Resultado:** 16/16 verificaciones aprobadas en 0.17 s
+**Resultado:** 16/16 verificaciones aprobadas en 0.15 s
 
 Complejidad documentada: mejor Θ(n log n) · promedio Θ(n log n) · peor Θ(n log n) · no estable · in-place O(1)
 

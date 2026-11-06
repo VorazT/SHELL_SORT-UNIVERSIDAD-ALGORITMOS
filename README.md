@@ -11,7 +11,7 @@ Algoritmo propio: **Shell Sort**. Se compara con dos métodos de la lista del cu
 
 ---
 
-## ✅ Cumplimiento de los requerimientos
+##  Cumplimiento de los requerimientos
 
 | Requerimiento | Dónde está |
 |---|---|
@@ -23,7 +23,7 @@ Algoritmo propio: **Shell Sort**. Se compara con dos métodos de la lista del cu
 
 ---
 
-## 🚀 Cómo ejecutarlo (VS Code)
+##  Cómo ejecutarlo (VS Code)
 
 ```bash
 # 1. Instalar las librerías (solo la primera vez)
@@ -58,7 +58,7 @@ y la pestaña **Testing** detecta las pruebas automáticamente.
 
 ---
 
-## 📁 Estructura
+##  Estructura
 
 ```text
 analisis-shell-sort/
@@ -86,7 +86,7 @@ analisis-shell-sort/
 
 ---
 
-## 📊 Resumen de complejidad
+##  Resumen de complejidad
 
 | | Shell Sort (Knuth) | Insertion Sort | Heap Sort |
 |---|---|---|---|
@@ -113,7 +113,7 @@ de Big O describe el crecimiento real. Ejemplo de una ejecución:
 
 ---
 
-## 📜 Historia breve
+##  Historia breve
 
 - **Shell Sort (1959)** — Donald L. Shell, *"A High-Speed Sorting Procedure"*,
   Communications of the ACM. Uno de los primeros en romper la barrera O(n²).
@@ -123,7 +123,7 @@ de Big O describe el crecimiento real. Ejemplo de una ejecución:
 - **Heap Sort (1964)** — J. W. J. Williams (*Algorithm 232*, CACM), quien también creó el
   heap binario. R. W. Floyd lo mejoró ese mismo año (construcción del heap en O(n)).
 
-## 📚 Referencias
+##  Referencias
 
 - Shell, D. L. (1959). A high-speed sorting procedure. *Communications of the ACM, 2*(7), 30–32.
 - Williams, J. W. J. (1964). Algorithm 232: Heapsort. *Communications of the ACM, 7*(6), 347–348.
